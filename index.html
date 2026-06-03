@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Peugeot Argentina · Red de Concesionarios MercadoLibre</title>
+<title>Peugeot Argentina - Red de Concesionarios MercadoLibre</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1" integrity="sha384-jb8JQMbMoBUzgWatfe6COACi2ljcDdZQ2OxczGA3bGNeWe+6DChMTBJemed7ZnvJ" crossorigin="anonymous"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
-  --st-navy:#0053A0;--st-blue:#0066cc;--bg:#f0f3f7;--card:#fff;
+  --vw-navy:#001e50;--vw-blue:#0066cc;--bg:#f0f3f7;--card:#fff;
   --text:#1a2332;--text2:#5a6a7e;--border:#dde4ed;
   --green:#15803d;--green-bg:#dcfce7;
   --red:#dc2626;--red-bg:#fee2e2;
@@ -17,10 +17,10 @@
   --gap:14px;--r:10px;
 }
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);font-size:13px;}
-.hdr{background:var(--st-navy);color:#fff;margin-bottom:var(--gap);}
-.hdr-inner{max-width:1640px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.hdr{background:var(--vw-navy);color:#fff;margin-bottom:var(--gap);}
+.hdr-inner{max-width:1800px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
 .hdr-brand{display:flex;align-items:center;gap:14px;}
-.vw-logo{width:44px;height:44px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:900;color:var(--st-navy);letter-spacing:-1px;flex-shrink:0;}
+.vw-logo{width:44px;height:44px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .hdr-title{font-size:16px;font-weight:700;line-height:1.2;}
 .hdr-sub{font-size:11.5px;color:rgba(255,255,255,.6);margin-top:2px;}
 .hdr-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
@@ -28,13 +28,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .lm-badge{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:4px 12px;font-size:11px;color:rgba(255,255,255,.7);}
 .upd{font-size:11px;color:rgba(255,255,255,.45);}
 .filter-sel{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:6px;color:#fff;padding:5px 10px;font-size:12px;cursor:pointer;}
-.filter-sel option{background:#0053A0;color:#fff;}
+.filter-sel option{background:#001e50;color:#fff;}
 .refresh-btn{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);border-radius:6px;color:#fff;padding:6px 13px;font-size:12px;font-weight:600;cursor:pointer;transition:.15s;}
 .refresh-btn:hover{background:rgba(255,255,255,.25);}
 .refresh-btn:disabled{opacity:.5;cursor:default;}
-.wrap{max-width:1640px;margin:0 auto;padding:0 16px 28px;}
+.wrap{max-width:1800px;margin:0 auto;padding:0 16px 28px;}
 .kpi-row{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--gap);margin-bottom:var(--gap);}
-.kpi{background:var(--card);border-radius:var(--r);padding:15px 17px;box-shadow:0 1px 3px rgba(0,0,0,.07);border-top:3px solid var(--st-navy);}
+.kpi{background:var(--card);border-radius:var(--r);padding:15px 17px;box-shadow:0 1px 3px rgba(0,0,0,.07);border-top:3px solid var(--vw-navy);}
 .kpi-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--text2);font-weight:700;margin-bottom:3px;}
 .kpi-val{font-size:23px;font-weight:800;color:var(--text);line-height:1.15;}
 .kpi-delta{font-size:11px;margin-top:5px;display:flex;align-items:center;gap:4px;}
@@ -48,7 +48,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .arr-dn{color:var(--red);}
 .arr-neu{color:var(--neu);}
 .lm-txt{color:var(--text2);}
-.charts{display:grid;grid-template-columns:2fr 1fr 1.2fr;gap:var(--gap);margin-bottom:var(--gap);}
+.charts{display:grid;grid-template-columns:1fr;gap:var(--gap);margin-bottom:var(--gap);}
+.chart-card canvas{max-height:280px;}
 .chart-card{background:var(--card);border-radius:var(--r);padding:17px 20px;box-shadow:0 1px 3px rgba(0,0,0,.07);}
 .chart-card h3{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text2);margin-bottom:13px;}
 .chart-card canvas{max-height:235px;}
@@ -58,7 +59,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .tbl-wrap{overflow-x:auto;}
 table{width:100%;border-collapse:collapse;font-size:12px;}
 thead th{background:#f8fafc;padding:9px 10px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--text2);border-bottom:2px solid var(--border);white-space:nowrap;cursor:pointer;user-select:none;}
-thead th:hover{color:var(--st-navy);}
+thead th:hover{color:var(--vw-navy);}
 thead th.sort-asc::after{content:' ▲';}
 thead th.sort-desc::after{content:' ▼';}
 thead .th-group{background:#f0f3f7;text-align:center;font-size:9px;font-weight:800;letter-spacing:.8px;padding:5px 10px;border-bottom:1px solid var(--border);color:var(--text2);}
@@ -79,8 +80,6 @@ tbody tr:last-child td{border-bottom:none;}
 .acos-ok{color:#15803d;font-weight:800;}
 .acos-mid{color:#b45309;font-weight:800;}
 .acos-hi{color:#dc2626;font-weight:800;}
-.shp-bar{display:flex;height:7px;border-radius:3px;overflow:hidden;gap:1px;min-width:70px;}
-.shp-seg{height:100%;}
 .seller-name{font-weight:700;color:var(--text);white-space:nowrap;}
 .seller-id{font-size:10px;color:var(--text2);}
 .footer{text-align:center;padding:18px;font-size:11px;color:var(--text2);border-top:1px solid var(--border);margin-top:4px;}
@@ -93,40 +92,37 @@ tbody tr:last-child td{border-bottom:none;}
 <div class="hdr">
   <div class="hdr-inner">
     <div class="hdr-brand">
-      <div class="vw-logo">PE</div>
+                  <div class="vw-logo" style="background:#003DA5;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:white;letter-spacing:-0.5px;flex-shrink:0;">PSA</div>
       <div>
-        <div class="hdr-title">Peugeot · Red de Concesionarios · MercadoLibre Argentina</div>
-        <div class="hdr-sub">Performance por dealer · datos actualizados semanalmente</div>
+        <div class="hdr-title">Red de Concesionarios — Peugeot Argentina</div>
       </div>
     </div>
     <div class="hdr-right">
       <select class="filter-sel" id="sel-dealer" onchange="applyFilter()">
         <option value="all">Todos los concesionarios</option>
       </select>
-      <div class="period-badge">Mayo 2026 · 1–31 May</div>
-      <div class="lm-badge">vs 1–30 Abr (mismo período)</div>
+      <div class="period-badge" id="badge-period">Junio 2026 . 1-2 Jun</div>
+      <div class="lm-badge" id="badge-lm">vs 1-2 May (mismo periodo)</div>
       <button class="refresh-btn" id="refresh-btn" onclick="doRefresh()">↻ Recargar</button>
-      <div class="upd">Datos al 31/05/2026 · Generado 01/06/2026 10:32</div>
+      <div class="upd" id="badge-upd">03/06/2026 10:57</div>
     </div>
   </div>
 </div>
 
 <div class="wrap">
-  <div style="font-size:11px;color:var(--text2);margin-bottom:8px;padding:0 2px;">
-    ★ <strong>Top 10 dealers por TGMV</strong> · resumen del período · la tabla completa muestra todos los concesionarios
-  </div>
+  <!-- Fila 1: KPIs de volumen -->
   <div class="kpi-row">
-    <div class="kpi" style="border-top-color:#0053A0">
-      <div class="kpi-lbl">TGMV · Top 10</div>
+    <div class="kpi" style="border-top-color:#001e50">
+      <div class="kpi-lbl">TGMV Red</div>
       <div class="kpi-val" id="k-tgmv">—</div>
       <div class="kpi-delta" id="k-tgmv-d"></div>
       <div class="kpi-sub">Facturación MTD</div>
     </div>
     <div class="kpi" style="border-top-color:#0066cc">
-      <div class="kpi-lbl">Unidades · Top 10</div>
+      <div class="kpi-lbl">Unidades TSI</div>
       <div class="kpi-val" id="k-tsi">—</div>
       <div class="kpi-delta" id="k-tsi-d"></div>
-      <div class="kpi-sub">TSI confirmadas MTD</div>
+      <div class="kpi-sub">Unidades vendidas MTD</div>
     </div>
     <div class="kpi" style="border-top-color:#17a34a">
       <div class="kpi-lbl">ASP Promedio</div>
@@ -138,70 +134,100 @@ tbody tr:last-child td{border-bottom:none;}
       <div class="kpi-lbl">Visitas Red</div>
       <div class="kpi-val" id="k-vis">—</div>
       <div class="kpi-delta" id="k-vis-d"></div>
-      <div class="kpi-sub" id="k-cvr">CVR —</div>
+      <div class="kpi-sub">Visitas a publicaciones MTD</div>
     </div>
+    <div class="kpi" style="border-top-color:#0891b2">
+      <div class="kpi-lbl">CVR</div>
+      <div class="kpi-val" id="k-cvr">—</div>
+      <div class="kpi-delta" id="k-cvr-d"></div>
+      <div class="kpi-sub">Órdenes / Visitas</div>
+    </div>
+  </div>
+  <!-- Fila 2: KPIs de calidad / % sobre TGMV -->
+  <div class="kpi-row">
     <div class="kpi" style="border-top-color:#d97706">
-      <div class="kpi-lbl">Live Listings</div>
-      <div class="kpi-val" id="k-ll">—</div>
-      <div class="kpi-delta" id="k-ll-d"></div>
-      <div class="kpi-sub">Publicaciones activas</div>
+      <div class="kpi-lbl">% TGMV FBM</div>
+      <div class="kpi-val" id="k-fbm">—</div>
+      <div class="kpi-delta" id="k-fbm-d"></div>
+      <div class="kpi-sub">Full Fulfillment / TGMV ME2</div>
+    </div>
+    <div class="kpi" style="border-top-color:#15803d">
+      <div class="kpi-lbl">% TGMV Gold Pro</div>
+      <div class="kpi-val" id="k-gp">—</div>
+      <div class="kpi-delta" id="k-gp-d"></div>
+      <div class="kpi-sub">Combo Premium / TGMV</div>
+    </div>
+    <div class="kpi" style="border-top-color:#6d28d9">
+      <div class="kpi-lbl">% TGMV PxQ</div>
+      <div class="kpi-val" id="k-pxq">—</div>
+      <div class="kpi-delta" id="k-pxq-d"></div>
+      <div class="kpi-sub">Ventas mayoristas / TGMV</div>
+    </div>
+    <div class="kpi" style="border-top-color:#dc2626">
+      <div class="kpi-lbl">% MAds</div>
+      <div class="kpi-val" id="k-mads">—</div>
+      <div class="kpi-delta" id="k-mads-d"></div>
+      <div class="kpi-sub">Inversión en ads / TGMV</div>
+    </div>
+    <div class="kpi" style="border-top-color:#b45309">
+      <div class="kpi-lbl">ACOS PAds</div>
+      <div class="kpi-val" id="k-acos">—</div>
+      <div class="kpi-delta" id="k-acos-d"></div>
+      <div class="kpi-sub">Inversión / TGMV ads-driven</div>
     </div>
   </div>
 
   <div class="charts">
     <div class="chart-card">
-      <h3>TGMV MTD vs Mes Anterior — por Concesionario (M ARS)</h3>
+      <h3>TGMV MTD vs Mes Anterior — Top 11 Concesionarios (M ARS)</h3>
       <canvas id="chart-tgmv"></canvas>
-    </div>
-    <div class="chart-card">
-      <h3>Mix de Envío · % de Unidades Vendidas (Red MTD)</h3>
-      <canvas id="chart-ship"></canvas>
-    </div>
-    <div class="chart-card">
-      <h3>ACOS PAds por Dealer (%)</h3>
-      <canvas id="chart-acos"></canvas>
     </div>
   </div>
 
   <div class="tbl-card">
     <div class="tbl-hdr">
       <div class="tbl-title">Detalle por Concesionario · MTD vs Mes Anterior (mismos días)</div>
-      <div style="font-size:11px;color:var(--text2);margin-top:3px;">▲ verde = mejora · ▼ rojo = baja · tasas (cancelaciones, reclamos, demoras, ACOS): bajar es mejor · clic en columna para ordenar</div>
     </div>
     <div class="tbl-wrap">
       <table id="main-table">
         <thead>
           <tr>
             <th rowspan="2" onclick="thSort('name')" style="vertical-align:bottom">Concesionario</th>
-            <th colspan="4" class="th-group" style="border-left:2px solid #dde4ed">Reputación</th>
-            <th colspan="3" class="th-group" style="border-left:2px solid #dde4ed">Ventas</th>
-            <th colspan="2" class="th-group" style="border-left:2px solid #dde4ed">Tráfico</th>
-            <th class="th-group" style="border-left:2px solid #dde4ed">Listings</th>
-            <th colspan="3" class="th-group" style="border-left:2px solid #dde4ed">Envío</th>
-            <th colspan="2" class="th-group" style="border-left:2px solid #dde4ed">Financiación</th>
-            <th class="th-group" style="border-left:2px solid #dde4ed">Benefits</th>
-            <th colspan="3" class="th-group" style="border-left:2px solid #dde4ed">PAds</th>
+            <th colspan="4" class="th-group" style="border-left:2px solid #dde4ed">REPUTACIÓN</th>
+            <th colspan="4" class="th-group" style="border-left:2px solid #dde4ed">VENTAS</th>
+            <th colspan="2" class="th-group" style="border-left:2px solid #dde4ed">TRÁFICO</th>
+            <th colspan="2" class="th-group" style="border-left:2px solid #dde4ed">ENVÍO</th>
+            <th colspan="2" class="th-group" style="border-left:2px solid #dde4ed">CATÁLOGO</th>
+            <th colspan="3" class="th-group" style="border-left:2px solid #dde4ed">PxQ</th>
+            <th colspan="2" class="th-group" style="border-left:2px solid #dde4ed">ADS</th>
           </tr>
           <tr>
-            <th onclick="thSort('rep')" style="border-left:2px solid #dde4ed">Nivel</th>
-            <th onclick="thSort('cancel_rate')">% Cancel.</th>
-            <th onclick="thSort('claims_rate')">% Recl.</th>
-            <th onclick="thSort('delayed_rate')">% Demora</th>
-            <th onclick="thSort('tgmv')" style="border-left:2px solid #dde4ed">TGMV</th>
+            <!-- REPUTACIÓN -->
+            <th onclick="thSort('rep_nivel')" style="border-left:2px solid #dde4ed">Nivel</th>
+            <th onclick="thSort('rep_pct_cancel')">% Cancel.</th>
+            <th onclick="thSort('rep_pct_claims')">% Recl.</th>
+            <th onclick="thSort('rep_pct_delay')">% Demora</th>
+            <!-- VENTAS -->
+            <th onclick="thSort('tgmv_ars')" style="border-left:2px solid #dde4ed">TGMV</th>
             <th onclick="thSort('tsi')">TSI</th>
-            <th onclick="thSort('asp')">ASP</th>
-            <th onclick="thSort('visits')" style="border-left:2px solid #dde4ed">Visitas</th>
-            <th onclick="thSort('cvr_raw')">CVR</th>
-            <th onclick="thSort('listings')" style="border-left:2px solid #dde4ed">Activos</th>
-            <th style="border-left:2px solid #dde4ed">Mix</th>
-            <th onclick="thSort('fbm_pct')">% Full</th>
-            <th onclick="thSort('flex_pct')">% Flex</th>
-            <th onclick="thSort('combo_pr_pct')" style="border-left:2px solid #dde4ed">% C.Premium</th>
-            <th onclick="thSort('combo_cl_pct')">% C.Classic</th>
-            <th onclick="thSort('benefits_pct')" style="border-left:2px solid #dde4ed">% Benefits</th>
-            <th onclick="thSort('acos')" style="border-left:2px solid #dde4ed">ACOS</th>
-            <th onclick="thSort('pads_inv')">Inversión</th>
-            <th onclick="thSort('pads_items')">Items</th>
+            <th onclick="thSort('orders')">Órdenes</th>
+            <th onclick="thSort('asp_ars')">ASP</th>
+            <!-- TRÁFICO -->
+            <th onclick="thSort('visitas')" style="border-left:2px solid #dde4ed">Visitas</th>
+            <th onclick="thSort('cvr_pct')">CVR</th>
+            <!-- ENVÍO -->
+            <th onclick="thSort('fbm_pct_tgmv')" style="border-left:2px solid #dde4ed">FBM% TGMV</th>
+            <th onclick="thSort('fbm_pct_tsi')">FBM% TSI</th>
+            <!-- CATÁLOGO -->
+            <th onclick="thSort('pct_ll_gold_pro')" style="border-left:2px solid #dde4ed">% LL Gold Pro</th>
+            <th onclick="thSort('gp_pct')">GP%</th>
+            <!-- PxQ -->
+            <th onclick="thSort('pct_ll_pxq')" style="border-left:2px solid #dde4ed">% LL PxQ</th>
+            <th onclick="thSort('pct_sl_pxq')">% SL PxQ</th>
+            <th onclick="thSort('pct_nmv_pxq')">% NMV PxQ</th>
+            <!-- ADS -->
+            <th onclick="thSort('pct_mads')" style="border-left:2px solid #dde4ed">% MAds</th>
+            <th onclick="thSort('acos_pct')">ACOS</th>
           </tr>
         </thead>
         <tbody id="tbl-body"></tbody>
@@ -211,27 +237,28 @@ tbody tr:last-child td{border-bottom:none;}
 </div>
 
 <div class="footer">
-  <strong>MercadoLibre Argentina</strong> · Datos actualizados semanalmente ·
-  Vista de solo lectura — para uso de la red de concesionarios Peugeot Argentina
+  <strong>Mercado Libre Argentina</strong> · Información confidencial · Prohibida su distribución o reproducción sin autorización expresa
 </div>
 
 <script>
 // ── Data injected by generate_dashboard.py ─────────────────────────────────
 // Contains ONLY computed dealer metrics. No internal table names or queries.
-const RAW = [{"id": 554584837, "name": "Nation Peugeot", "rep": 8, "cancel_rate": 0.0, "claims_rate": 0.47, "delayed_rate": 0.58, "cancel_rate_lm": 0.0, "claims_rate_lm": 0.47, "delayed_rate_lm": 0.58, "tgmv": 97241940, "tsi": 575, "asp": 168901, "visits": 10999, "cvr_raw": 5.23, "listings": 1252, "fbm_pct": 73.1, "flex_pct": 0.0, "xd_pct": 26.7, "ds_pct": 0.0, "combo_pr_pct": 94.9, "combo_cl_pct": 2.8, "benefits_pct": 10.3, "acos": 9.1, "pads_inv": 314457, "pads_items": 0, "tgmv_lm": 65507516, "tsi_lm": 609, "asp_lm": 107566, "visits_lm": 10450, "cvr_raw_lm": 5.83, "listings_lm": 1252, "fbm_pct_lm": 79.5, "combo_pr_pct_lm": 65.9, "benefits_pct_lm": 17.7, "acos_lm": 44.1, "pads_inv_lm": 32182, "pads_items_lm": 0, "tgmv_delta_pct": 48.4}, {"id": 350350162, "name": "Granville Peugeot", "rep": 8, "cancel_rate": 0.0, "claims_rate": 0.78, "delayed_rate": 0.61, "cancel_rate_lm": 0.0, "claims_rate_lm": 0.76, "delayed_rate_lm": 0.59, "tgmv": 36934101, "tsi": 302, "asp": 122186, "visits": 10624, "cvr_raw": 2.85, "listings": 769, "fbm_pct": 48.9, "flex_pct": 0.0, "xd_pct": 0.0, "ds_pct": 50.5, "combo_pr_pct": 1.0, "combo_cl_pct": 99.0, "benefits_pct": 0.0, "acos": 22.4, "pads_inv": 712855, "pads_items": 0, "tgmv_lm": 40260737, "tsi_lm": 294, "asp_lm": 136941, "visits_lm": 10570, "cvr_raw_lm": 2.78, "listings_lm": 769, "fbm_pct_lm": 73.1, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 12.6, "pads_inv_lm": 875078, "pads_items_lm": 0, "tgmv_delta_pct": -8.3}, {"id": 1319402101, "name": "Surfrance", "rep": 8, "cancel_rate": 0.0, "claims_rate": 0.39, "delayed_rate": 0.77, "cancel_rate_lm": 0.0, "claims_rate_lm": 0.38, "delayed_rate_lm": 0.76, "tgmv": 189978172, "tsi": 1575, "asp": 120608, "visits": 87525, "cvr_raw": 1.8, "listings": 5388, "fbm_pct": 1.5, "flex_pct": 0.0, "xd_pct": 97.9, "ds_pct": 0.0, "combo_pr_pct": 21.2, "combo_cl_pct": 67.2, "benefits_pct": 0.1, "acos": 57.3, "pads_inv": 56665923, "pads_items": 0, "tgmv_lm": 164590626, "tsi_lm": 1360, "asp_lm": 121023, "visits_lm": 79939, "cvr_raw_lm": 1.7, "listings_lm": 5388, "fbm_pct_lm": 11.0, "combo_pr_pct_lm": 18.5, "benefits_pct_lm": 0.0, "acos_lm": 60.3, "pads_inv_lm": 52776139, "pads_items_lm": 0, "tgmv_delta_pct": 15.4}, {"id": 614362681, "name": "Avant SA", "rep": 7, "cancel_rate": 0.0, "claims_rate": 0.33, "delayed_rate": 0.0, "cancel_rate_lm": 0.0, "claims_rate_lm": 0.33, "delayed_rate_lm": 0.0, "tgmv": 35331464, "tsi": 142, "asp": 248740, "visits": 13655, "cvr_raw": 1.04, "listings": 6273, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 99.3, "ds_pct": 0.0, "combo_pr_pct": 13.2, "combo_cl_pct": 86.8, "benefits_pct": 2.3, "acos": 24.5, "pads_inv": 447654, "pads_items": 0, "tgmv_lm": 31231586, "tsi_lm": 138, "asp_lm": 226316, "visits_lm": 13456, "cvr_raw_lm": 1.03, "listings_lm": 6273, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 11.8, "benefits_pct_lm": 0.0, "acos_lm": 11.1, "pads_inv_lm": 462403, "pads_items_lm": 0, "tgmv_delta_pct": 13.1}, {"id": 227461996, "name": "Challans", "rep": 3, "cancel_rate": 0.53, "claims_rate": 1.6, "delayed_rate": 5.81, "cancel_rate_lm": 0.52, "claims_rate_lm": 1.57, "delayed_rate_lm": 5.71, "tgmv": 6796197, "tsi": 73, "asp": 92177, "visits": 7767, "cvr_raw": 0.95, "listings": 2844, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 100.0, "ds_pct": 0.0, "combo_pr_pct": 1.1, "combo_cl_pct": 82.6, "benefits_pct": 0.0, "acos": 49.2, "pads_inv": 281630, "pads_items": 0, "tgmv_lm": 9366603, "tsi_lm": 98, "asp_lm": 95578, "visits_lm": 8302, "cvr_raw_lm": 1.18, "listings_lm": 2844, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.5, "benefits_pct_lm": 0.0, "acos_lm": 32.8, "pads_inv_lm": 209607, "pads_items_lm": 0, "tgmv_delta_pct": -27.4}, {"id": 377428703, "name": "Toulon SA", "rep": 6, "cancel_rate": 0.0, "claims_rate": 0.64, "delayed_rate": 0.74, "cancel_rate_lm": 0.0, "claims_rate_lm": 0.62, "delayed_rate_lm": 0.72, "tgmv": 5528605, "tsi": 74, "asp": 73902, "visits": 4563, "cvr_raw": 1.64, "listings": 601, "fbm_pct": 39.5, "flex_pct": 0.0, "xd_pct": 60.5, "ds_pct": 0.0, "combo_pr_pct": 5.8, "combo_cl_pct": 80.2, "benefits_pct": 4.8, "acos": 45.1, "pads_inv": 572020, "pads_items": 0, "tgmv_lm": 8238585, "tsi_lm": 107, "asp_lm": 76996, "visits_lm": 4858, "cvr_raw_lm": 2.2, "listings_lm": 601, "fbm_pct_lm": 72.9, "combo_pr_pct_lm": 28.9, "benefits_pct_lm": 0.0, "acos_lm": 22.7, "pads_inv_lm": 565621, "pads_items_lm": 0, "tgmv_delta_pct": -32.9}, {"id": 199765163, "name": "Belchamp", "rep": 5, "cancel_rate": 0.0, "claims_rate": 0.72, "delayed_rate": 6.62, "cancel_rate_lm": 0.0, "claims_rate_lm": 0.0, "delayed_rate_lm": 21.73, "tgmv": 3758941, "tsi": 34, "asp": 108885, "visits": 1691, "cvr_raw": 2.04, "listings": 882, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 94.2, "ds_pct": 0.0, "combo_pr_pct": 24.8, "combo_cl_pct": 75.2, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 1645512, "tsi_lm": 33, "asp_lm": 49864, "visits_lm": 1079, "cvr_raw_lm": 3.06, "listings_lm": 882, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": 128.4}, {"id": 232783934, "name": "SVA Repuestos", "rep": 1, "cancel_rate": 3.79, "claims_rate": 2.1, "delayed_rate": 3.9, "cancel_rate_lm": 3.76, "claims_rate_lm": 2.09, "delayed_rate_lm": 3.88, "tgmv": 336944, "tsi": 3, "asp": 88336, "visits": 164, "cvr_raw": 2.33, "listings": 576, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 100.0, "ds_pct": 0.0, "combo_pr_pct": 95.5, "combo_cl_pct": 4.5, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 564125, "tsi_lm": 6, "asp_lm": 94021, "visits_lm": 297, "cvr_raw_lm": 2.02, "listings_lm": 576, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 95.3, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": -40.3}, {"id": 28149340, "name": "Leon Banchik", "rep": 2, "cancel_rate": 0.0, "claims_rate": 5.0, "delayed_rate": 1.96, "cancel_rate_lm": 0.0, "claims_rate_lm": 4.76, "delayed_rate_lm": 1.85, "tgmv": 2185391, "tsi": 25, "asp": 86663, "visits": 2283, "cvr_raw": 1.1, "listings": 2002, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 0.0, "ds_pct": 100.0, "combo_pr_pct": 0.0, "combo_cl_pct": 100.0, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 2193535, "tsi_lm": 29, "asp_lm": 75639, "visits_lm": 2992, "cvr_raw_lm": 0.97, "listings_lm": 2002, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": -0.4}, {"id": 661815899, "name": "Le Rocher", "rep": 5, "cancel_rate": 0.0, "claims_rate": 0.86, "delayed_rate": 2.8, "cancel_rate_lm": 0.0, "claims_rate_lm": 0.84, "delayed_rate_lm": 2.75, "tgmv": 600077, "tsi": 9, "asp": 60374, "visits": 2879, "cvr_raw": 0.35, "listings": 350, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 0.0, "ds_pct": 100.0, "combo_pr_pct": 0.0, "combo_cl_pct": 100.0, "benefits_pct": 0.0, "acos": 174.2, "pads_inv": 293997, "pads_items": 0, "tgmv_lm": 777100, "tsi_lm": 10, "asp_lm": 77710, "visits_lm": 2666, "cvr_raw_lm": 0.38, "listings_lm": 350, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 51.0, "pads_inv_lm": 194601, "pads_items_lm": 0, "tgmv_delta_pct": -22.8}, {"id": 223816996, "name": "Blois Peugeot", "rep": 1, "cancel_rate": 0.0, "claims_rate": 0.0, "delayed_rate": 26.08, "cancel_rate_lm": 0.0, "claims_rate_lm": 0.0, "delayed_rate_lm": 26.08, "tgmv": 273313, "tsi": 2, "asp": 136657, "visits": 152, "cvr_raw": 1.32, "listings": 368, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 0.0, "ds_pct": 100.0, "combo_pr_pct": 0.0, "combo_cl_pct": 40.8, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 189726, "tsi_lm": 8, "asp_lm": 23716, "visits_lm": 224, "cvr_raw_lm": 3.57, "listings_lm": 368, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": 44.1}, {"id": 375754390, "name": "Les Bleus Repuestos", "rep": 0, "cancel_rate": 0.0, "claims_rate": 0.0, "delayed_rate": 0.0, "cancel_rate_lm": 0.0, "claims_rate_lm": 0.0, "delayed_rate_lm": 0.0, "tgmv": 0, "tsi": 0, "asp": 0, "visits": 17, "cvr_raw": 0.0, "listings": 0, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 0.0, "ds_pct": 0.0, "combo_pr_pct": 0.0, "combo_cl_pct": 0.0, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 0, "tsi_lm": 0, "asp_lm": 0, "visits_lm": 8, "cvr_raw_lm": 0.0, "listings_lm": 0, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": 0.0}, {"id": 1590389930, "name": "Indiana Peugeot", "rep": 2, "cancel_rate": 2.4, "claims_rate": 4.81, "delayed_rate": 6.25, "cancel_rate_lm": 2.38, "claims_rate_lm": 4.76, "delayed_rate_lm": 6.15, "tgmv": 0, "tsi": 0, "asp": 0, "visits": 214, "cvr_raw": 0.0, "listings": 518, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 0.0, "ds_pct": 0.0, "combo_pr_pct": 0.0, "combo_cl_pct": 0.0, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 0, "tsi_lm": 0, "asp_lm": 0, "visits_lm": 218, "cvr_raw_lm": 0.0, "listings_lm": 518, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": 0.0}, {"id": 280248445, "name": "Robayna Repuestos", "rep": 5, "cancel_rate": 0.0, "claims_rate": 0.0, "delayed_rate": 2.56, "cancel_rate_lm": 0.0, "claims_rate_lm": 0.0, "delayed_rate_lm": 2.56, "tgmv": 683373, "tsi": 15, "asp": 44464, "visits": 351, "cvr_raw": 4.38, "listings": 24, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 100.0, "ds_pct": 0.0, "combo_pr_pct": 0.0, "combo_cl_pct": 100.0, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 402732, "tsi_lm": 9, "asp_lm": 44748, "visits_lm": 313, "cvr_raw_lm": 2.88, "listings_lm": 24, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": 69.7}, {"id": 1335667469, "name": "Peugeot Avec", "rep": 0, "cancel_rate": 0.0, "claims_rate": 0.0, "delayed_rate": 0.0, "cancel_rate_lm": 0.0, "claims_rate_lm": 0.0, "delayed_rate_lm": 0.0, "tgmv": 0, "tsi": 0, "asp": 0, "visits": 1, "cvr_raw": 0.0, "listings": 0, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 0.0, "ds_pct": 0.0, "combo_pr_pct": 0.0, "combo_cl_pct": 0.0, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 0, "tsi_lm": 0, "asp_lm": 0, "visits_lm": 2, "cvr_raw_lm": 0.0, "listings_lm": 0, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": 0.0}, {"id": 1471451284, "name": "Lele", "rep": 0, "cancel_rate": 0.0, "claims_rate": 0.0, "delayed_rate": 0.0, "cancel_rate_lm": 0.0, "claims_rate_lm": 0.0, "delayed_rate_lm": 0.0, "tgmv": 0, "tsi": 0, "asp": 0, "visits": 0, "cvr_raw": 0.0, "listings": 0, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 0.0, "ds_pct": 0.0, "combo_pr_pct": 0.0, "combo_cl_pct": 0.0, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 0, "tsi_lm": 0, "asp_lm": 0, "visits_lm": 0, "cvr_raw_lm": 0.0, "listings_lm": 0, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": 0.0}, {"id": 212337293, "name": "Metz Chaco", "rep": 0, "cancel_rate": 0.0, "claims_rate": 0.0, "delayed_rate": 0.0, "cancel_rate_lm": 0.0, "claims_rate_lm": 0.0, "delayed_rate_lm": 0.0, "tgmv": 0, "tsi": 0, "asp": 0, "visits": 9, "cvr_raw": 0.0, "listings": 26, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 0.0, "ds_pct": 0.0, "combo_pr_pct": 0.0, "combo_cl_pct": 0.0, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 0, "tsi_lm": 0, "asp_lm": 0, "visits_lm": 10, "cvr_raw_lm": 0.0, "listings_lm": 26, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": 0.0}, {"id": 279052800, "name": "Rosedal Automotores", "rep": 0, "cancel_rate": 0.0, "claims_rate": 0.0, "delayed_rate": 0.0, "cancel_rate_lm": 0.0, "claims_rate_lm": 0.0, "delayed_rate_lm": 0.0, "tgmv": 0, "tsi": 0, "asp": 0, "visits": 1, "cvr_raw": 0.0, "listings": 0, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 0.0, "ds_pct": 0.0, "combo_pr_pct": 0.0, "combo_cl_pct": 0.0, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 0, "tsi_lm": 0, "asp_lm": 0, "visits_lm": 0, "cvr_raw_lm": 0.0, "listings_lm": 0, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": 0.0}, {"id": 222703817, "name": "Ancasti Peugeot", "rep": 4, "cancel_rate": 0.0, "claims_rate": 7.14, "delayed_rate": 7.69, "cancel_rate_lm": 0.0, "claims_rate_lm": 7.14, "delayed_rate_lm": 7.69, "tgmv": 975000, "tsi": 2, "asp": 487500, "visits": 1014, "cvr_raw": 0.2, "listings": 496, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 0.0, "ds_pct": 100.0, "combo_pr_pct": 0.0, "combo_cl_pct": 100.0, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 390000, "tsi_lm": 2, "asp_lm": 195000, "visits_lm": 598, "cvr_raw_lm": 0.33, "listings_lm": 496, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": 150.0}, {"id": 382005075, "name": "AU7922347", "rep": 4, "cancel_rate": 13.33, "claims_rate": 0.0, "delayed_rate": 25.0, "cancel_rate_lm": 13.33, "claims_rate_lm": 0.0, "delayed_rate_lm": 25.0, "tgmv": 2714885, "tsi": 6, "asp": 410257, "visits": 595, "cvr_raw": 1.11, "listings": 38, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 0.0, "ds_pct": 84.9, "combo_pr_pct": 0.0, "combo_cl_pct": 75.7, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 0, "tsi_lm": 0, "asp_lm": 0, "visits_lm": 54, "cvr_raw_lm": 0.0, "listings_lm": 38, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": 0.0}, {"id": 1357368916, "name": "Grand Benoit", "rep": 5, "cancel_rate": 0.2, "claims_rate": 1.5, "delayed_rate": 2.4, "cancel_rate_lm": 0.19, "claims_rate_lm": 1.49, "delayed_rate_lm": 2.4, "tgmv": 1104303, "tsi": 9, "asp": 112305, "visits": 3715, "cvr_raw": 0.26, "listings": 2218, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 0.0, "ds_pct": 92.3, "combo_pr_pct": 0.0, "combo_cl_pct": 95.1, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 6939940, "tsi_lm": 52, "asp_lm": 133460, "visits_lm": 4401, "cvr_raw_lm": 1.18, "listings_lm": 2218, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 5.8, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": -84.1}, {"id": 578302849, "name": "Parra Repuestos", "rep": 6, "cancel_rate": 0.0, "claims_rate": 0.55, "delayed_rate": 3.01, "cancel_rate_lm": 0.0, "claims_rate_lm": 0.55, "delayed_rate_lm": 2.99, "tgmv": 10611338, "tsi": 203, "asp": 52068, "visits": 4368, "cvr_raw": 4.67, "listings": 874, "fbm_pct": 26.2, "flex_pct": 0.0, "xd_pct": 73.8, "ds_pct": 0.0, "combo_pr_pct": 93.7, "combo_cl_pct": 6.3, "benefits_pct": 18.4, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 12102319, "tsi_lm": 76, "asp_lm": 159241, "visits_lm": 3860, "cvr_raw_lm": 1.97, "listings_lm": 874, "fbm_pct_lm": 28.9, "combo_pr_pct_lm": 99.2, "benefits_pct_lm": 12.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": -12.3}, {"id": 214262511, "name": "Leffort", "rep": 5, "cancel_rate": 0.55, "claims_rate": 0.55, "delayed_rate": 0.0, "cancel_rate_lm": 0.55, "claims_rate_lm": 0.55, "delayed_rate_lm": 0.0, "tgmv": 2021014, "tsi": 16, "asp": 120460, "visits": 1677, "cvr_raw": 1.0, "listings": 480, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 0.0, "ds_pct": 90.0, "combo_pr_pct": 91.3, "combo_cl_pct": 0.0, "benefits_pct": 0.0, "acos": 27.8, "pads_inv": 128811, "pads_items": 0, "tgmv_lm": 1791706, "tsi_lm": 12, "asp_lm": 149309, "visits_lm": 1361, "cvr_raw_lm": 0.88, "listings_lm": 480, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 77.2, "benefits_pct_lm": 0.0, "acos_lm": 169.6, "pads_inv_lm": 109107, "pads_items_lm": 0, "tgmv_delta_pct": 12.8}, {"id": 226475251, "name": "Notre Dame Arg", "rep": 3, "cancel_rate": 0.0, "claims_rate": 1.51, "delayed_rate": 3.5, "cancel_rate_lm": 0.0, "claims_rate_lm": 1.51, "delayed_rate_lm": 3.5, "tgmv": 1839173, "tsi": 4, "asp": 391175, "visits": 1471, "cvr_raw": 0.32, "listings": 1276, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 79.6, "ds_pct": 0.0, "combo_pr_pct": 0.0, "combo_cl_pct": 100.0, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 1618000, "tsi_lm": 16, "asp_lm": 101125, "visits_lm": 2442, "cvr_raw_lm": 0.66, "listings_lm": 1276, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 21.9, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": 13.7}, {"id": 1835463176, "name": "Graff Schwerdt SA", "rep": 1, "cancel_rate": 4.54, "claims_rate": 0.0, "delayed_rate": 0.0, "cancel_rate_lm": 4.54, "claims_rate_lm": 0.0, "delayed_rate_lm": 0.0, "tgmv": 0, "tsi": 0, "asp": 0, "visits": 142, "cvr_raw": 0.0, "listings": 323, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 0.0, "ds_pct": 0.0, "combo_pr_pct": 0.0, "combo_cl_pct": 0.0, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 0, "tsi_lm": 0, "asp_lm": 0, "visits_lm": 79, "cvr_raw_lm": 0.0, "listings_lm": 323, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": 0.0}, {"id": 653160072, "name": "Chambord Repuestos", "rep": 3, "cancel_rate": 0.0, "claims_rate": 1.69, "delayed_rate": 5.55, "cancel_rate_lm": 0.0, "claims_rate_lm": 1.66, "delayed_rate_lm": 5.45, "tgmv": 0, "tsi": 0, "asp": 0, "visits": 2, "cvr_raw": 0.0, "listings": 0, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 0.0, "ds_pct": 0.0, "combo_pr_pct": 0.0, "combo_cl_pct": 0.0, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 0, "tsi_lm": 0, "asp_lm": 0, "visits_lm": 2, "cvr_raw_lm": 0.0, "listings_lm": 0, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": 0.0}, {"id": 120651187, "name": "Automobiles Rouge", "rep": 1, "cancel_rate": 7.14, "claims_rate": 9.52, "delayed_rate": 76.47, "cancel_rate_lm": 7.14, "claims_rate_lm": 9.52, "delayed_rate_lm": 76.47, "tgmv": 0, "tsi": 0, "asp": 0, "visits": 1, "cvr_raw": 0.0, "listings": 0, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 0.0, "ds_pct": 0.0, "combo_pr_pct": 0.0, "combo_cl_pct": 0.0, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 0, "tsi_lm": 0, "asp_lm": 0, "visits_lm": 0, "cvr_raw_lm": 0.0, "listings_lm": 0, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": 0.0}, {"id": 1300454182, "name": "Citroen La Voiture", "rep": 3, "cancel_rate": 1.75, "claims_rate": 0.0, "delayed_rate": 6.12, "cancel_rate_lm": 1.75, "claims_rate_lm": 0.0, "delayed_rate_lm": 6.12, "tgmv": 71542, "tsi": 5, "asp": 12103, "visits": 249, "cvr_raw": 2.37, "listings": 256, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 84.6, "ds_pct": 0.0, "combo_pr_pct": 0.0, "combo_cl_pct": 100.0, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 286935, "tsi_lm": 8, "asp_lm": 35867, "visits_lm": 527, "cvr_raw_lm": 1.52, "listings_lm": 256, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": -75.1}, {"id": 230442120, "name": "Gioda Automotores", "rep": 0, "cancel_rate": 0.0, "claims_rate": 0.0, "delayed_rate": 0.0, "cancel_rate_lm": 0.0, "claims_rate_lm": 0.0, "delayed_rate_lm": 0.0, "tgmv": 0, "tsi": 0, "asp": 0, "visits": 0, "cvr_raw": 0.0, "listings": 52, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 0.0, "ds_pct": 0.0, "combo_pr_pct": 0.0, "combo_cl_pct": 0.0, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 0, "tsi_lm": 0, "asp_lm": 0, "visits_lm": 0, "cvr_raw_lm": 0.0, "listings_lm": 52, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": 0.0}, {"id": 1494888710, "name": "Eurodycar", "rep": 0, "cancel_rate": 0.0, "claims_rate": 0.0, "delayed_rate": 0.0, "cancel_rate_lm": 0.0, "claims_rate_lm": 0.0, "delayed_rate_lm": 0.0, "tgmv": 0, "tsi": 0, "asp": 0, "visits": 0, "cvr_raw": 0.0, "listings": 0, "fbm_pct": 0.0, "flex_pct": 0.0, "xd_pct": 0.0, "ds_pct": 0.0, "combo_pr_pct": 0.0, "combo_cl_pct": 0.0, "benefits_pct": 0.0, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 0, "tsi_lm": 0, "asp_lm": 0, "visits_lm": 0, "cvr_raw_lm": 0.0, "listings_lm": 0, "fbm_pct_lm": 0.0, "combo_pr_pct_lm": 0.0, "benefits_pct_lm": 0.0, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": 0.0}, {"id": 474493158, "name": "Peugeot Aftermarket", "rep": 7, "cancel_rate": 0.33, "claims_rate": 0.66, "delayed_rate": 0.74, "cancel_rate_lm": 0.33, "claims_rate_lm": 0.67, "delayed_rate_lm": 1.5, "tgmv": 15770013, "tsi": 170, "asp": 92279, "visits": 18547, "cvr_raw": 0.92, "listings": 9504, "fbm_pct": 1.7, "flex_pct": 0.0, "xd_pct": 98.3, "ds_pct": 0.0, "combo_pr_pct": 5.1, "combo_cl_pct": 94.9, "benefits_pct": 51.6, "acos": 0.0, "pads_inv": 0, "pads_items": 0, "tgmv_lm": 19257849, "tsi_lm": 159, "asp_lm": 121119, "visits_lm": 16690, "cvr_raw_lm": 0.95, "listings_lm": 9504, "fbm_pct_lm": 6.9, "combo_pr_pct_lm": 8.9, "benefits_pct_lm": 49.2, "acos_lm": 0.0, "pads_inv_lm": 0, "pads_items_lm": 0, "tgmv_delta_pct": -18.1}];
+const datos_al = "02/06/2026";
+const mes_desde = "Junio 2026 . 1-2 Jun";
 
-RAW.forEach(d=>{ d.tgmv_delta_pct = d.tgmv_lm>0 ? (d.tgmv-d.tgmv_lm)/d.tgmv_lm*100 : 0; });
-let filtered=[...RAW], sortField='tgmv', sortDir=-1;
+const RAW = [{"seller_id": 1319402101, "name": "Surfrance ML", "rep_nivel": 8, "rep_pct_cancel": 0.0, "rep_pct_claims": 0.38, "rep_pct_delay": 0.79, "rep_nivel_lm": 8, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 0.38, "rep_pct_delay_lm": 0.76, "tgmv_ars": 14091343, "tgmv_ars_lm": 4083935, "tsi": 96, "tsi_lm": 39, "orders": 102, "orders_lm": 39, "asp_ars": 146785, "asp_ars_lm": 104716, "visitas": 5998, "visitas_lm": 4374, "cvr_pct": 1.7, "cvr_pct_lm": 0.89, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 64.0, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 16.9, "gp_pct_lm": 37.4, "pct_ll_pxq": 22.2, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.2, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 1.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 20.51, "pct_mads_lm": 84.08, "acos_pct": 48.4, "acos_pct_lm": 190.9}, {"seller_id": 554584837, "name": "Nation Peugeot", "rep_nivel": 8, "rep_pct_cancel": 0.0, "rep_pct_claims": 0.47, "rep_pct_delay": 0.58, "rep_nivel_lm": 8, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 0.48, "rep_pct_delay_lm": 0.59, "tgmv_ars": 6059781, "tgmv_ars_lm": 811170, "tsi": 43, "tsi_lm": 5, "orders": 42, "orders_lm": 5, "asp_ars": 140925, "asp_ars_lm": 162234, "visitas": 634, "visitas_lm": 254, "cvr_pct": 6.62, "cvr_pct_lm": 1.97, "fbm_pct_tgmv": 41.2, "fbm_pct_tgmv_lm": 92.4, "fbm_pct_tsi": 62.3, "fbm_pct_tsi_lm": 80.0, "pct_ll_gold_pro": 56.3, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 48.9, "gp_pct_lm": 92.4, "pct_ll_pxq": 2.6, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.26, "pct_mads_lm": 0.0, "acos_pct": 9.2, "acos_pct_lm": 0.0}, {"seller_id": 350350162, "name": "Granville Peugeot", "rep_nivel": 8, "rep_pct_cancel": 0.0, "rep_pct_claims": 0.58, "rep_pct_delay": 0.61, "rep_nivel_lm": 8, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 0.76, "rep_pct_delay_lm": 0.6, "tgmv_ars": 2969246, "tgmv_ars_lm": 670568, "tsi": 28, "tsi_lm": 4, "orders": 22, "orders_lm": 4, "asp_ars": 106044, "asp_ars_lm": 167642, "visitas": 1078, "visitas_lm": 506, "cvr_pct": 2.04, "cvr_pct_lm": 0.79, "fbm_pct_tgmv": 84.6, "fbm_pct_tgmv_lm": 21.6, "fbm_pct_tsi": 80.0, "fbm_pct_tsi_lm": 25.0, "pct_ll_gold_pro": 1.8, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 1.3, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 3.01, "pct_mads_lm": 9.24, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 614362681, "name": "Avant SA", "rep_nivel": 7, "rep_pct_cancel": 0.0, "rep_pct_claims": 0.34, "rep_pct_delay": 0.0, "rep_nivel_lm": 7, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 0.33, "rep_pct_delay_lm": 0.0, "tgmv_ars": 894765, "tgmv_ars_lm": 358068, "tsi": 5, "tsi_lm": 2, "orders": 6, "orders_lm": 2, "asp_ars": 178953, "asp_ars_lm": 179034, "visitas": 845, "visitas_lm": 550, "cvr_pct": 0.71, "cvr_pct_lm": 0.36, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 28.9, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 16.4, "gp_pct_lm": 0.0, "pct_ll_pxq": 0.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 4.36, "pct_mads_lm": 7.84, "acos_pct": 7.8, "acos_pct_lm": 0.0}, {"seller_id": 377428703, "name": "Toulon SA", "rep_nivel": 6, "rep_pct_cancel": 0.63, "rep_pct_claims": 0.63, "rep_pct_delay": 0.75, "rep_nivel_lm": 6, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 0.63, "rep_pct_delay_lm": 0.73, "tgmv_ars": 891612, "tgmv_ars_lm": 54000, "tsi": 7, "tsi_lm": 2, "orders": 8, "orders_lm": 2, "asp_ars": 127373, "asp_ars_lm": 27000, "visitas": 779, "visitas_lm": 284, "cvr_pct": 1.03, "cvr_pct_lm": 0.7, "fbm_pct_tgmv": 17.6, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 26.3, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 32.9, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 0.2, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 7.0, "pct_mads_lm": 99.4, "acos_pct": 59.2, "acos_pct_lm": 243.9}, {"seller_id": 474493158, "name": "Peugeot Aftermarket", "rep_nivel": 7, "rep_pct_cancel": 0.33, "rep_pct_claims": 0.66, "rep_pct_delay": 0.36, "rep_nivel_lm": 7, "rep_pct_cancel_lm": 0.34, "rep_pct_claims_lm": 0.68, "rep_pct_delay_lm": 1.51, "tgmv_ars": 846403, "tgmv_ars_lm": 244879, "tsi": 7, "tsi_lm": 4, "orders": 8, "orders_lm": 4, "asp_ars": 120915, "asp_ars_lm": 61220, "visitas": 1419, "visitas_lm": 1040, "cvr_pct": 0.56, "cvr_pct_lm": 0.38, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 56.7, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 25.0, "pct_ll_gold_pro": 0.3, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 56.7, "pct_ll_pxq": 0.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 199765163, "name": "Belchamp", "rep_nivel": 5, "rep_pct_cancel": 0.0, "rep_pct_claims": 0.71, "rep_pct_delay": 6.54, "rep_nivel_lm": 2, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 0.0, "rep_pct_delay_lm": 21.74, "tgmv_ars": 674493, "tgmv_ars_lm": 0, "tsi": 7, "tsi_lm": 0, "orders": 6, "orders_lm": 0, "asp_ars": 96356, "asp_ars_lm": 0, "visitas": 174, "visitas_lm": 27, "cvr_pct": 3.45, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 0.9, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 2.2, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 214262511, "name": "Leffort", "rep_nivel": 5, "rep_pct_cancel": 0.54, "rep_pct_claims": 0.54, "rep_pct_delay": 0.0, "rep_nivel_lm": 5, "rep_pct_cancel_lm": 0.56, "rep_pct_claims_lm": 0.56, "rep_pct_delay_lm": 0.0, "tgmv_ars": 316988, "tgmv_ars_lm": 0, "tsi": 4, "tsi_lm": 0, "orders": 5, "orders_lm": 0, "asp_ars": 79247, "asp_ars_lm": 0, "visitas": 179, "visitas_lm": 66, "cvr_pct": 2.79, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 76.8, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 100.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 6.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 10.18, "pct_mads_lm": 0.0, "acos_pct": 19.6, "acos_pct_lm": 0.0}, {"seller_id": 227461996, "name": "Challans", "rep_nivel": 3, "rep_pct_cancel": 0.53, "rep_pct_claims": 1.6, "rep_pct_delay": 5.78, "rep_nivel_lm": 3, "rep_pct_cancel_lm": 0.53, "rep_pct_claims_lm": 1.58, "rep_pct_delay_lm": 5.71, "tgmv_ars": 195634, "tgmv_ars_lm": 527000, "tsi": 2, "tsi_lm": 2, "orders": 2, "orders_lm": 2, "asp_ars": 97817, "asp_ars_lm": 263500, "visitas": 372, "visitas_lm": 388, "cvr_pct": 0.54, "cvr_pct_lm": 0.52, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 0.1, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 0.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 3.51, "pct_mads_lm": 2.64, "acos_pct": 0.0, "acos_pct_lm": 7.9}, {"seller_id": 661815899, "name": "Le Rocher", "rep_nivel": 5, "rep_pct_cancel": 0.0, "rep_pct_claims": 0.85, "rep_pct_delay": 2.78, "rep_nivel_lm": 5, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 0.85, "rep_pct_delay_lm": 2.75, "tgmv_ars": 166495, "tgmv_ars_lm": 0, "tsi": 2, "tsi_lm": 0, "orders": 2, "orders_lm": 0, "asp_ars": 83248, "asp_ars_lm": 0, "visitas": 277, "visitas_lm": 128, "cvr_pct": 0.72, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 3.6, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 0.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 13.64, "pct_mads_lm": 0.0, "acos_pct": 12.4, "acos_pct_lm": 0.0}, {"seller_id": 1357368916, "name": "Grand Benoit", "rep_nivel": 5, "rep_pct_cancel": 0.2, "rep_pct_claims": 1.5, "rep_pct_delay": 2.41, "rep_nivel_lm": 5, "rep_pct_cancel_lm": 0.2, "rep_pct_claims_lm": 1.5, "rep_pct_delay_lm": 2.41, "tgmv_ars": 166472, "tgmv_ars_lm": 0, "tsi": 1, "tsi_lm": 0, "orders": 1, "orders_lm": 0, "asp_ars": 166472, "asp_ars_lm": 0, "visitas": 368, "visitas_lm": 153, "cvr_pct": 0.27, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 0.0, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 0.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 382005075, "name": "AU7922347", "rep_nivel": 4, "rep_pct_cancel": 12.5, "rep_pct_claims": 0.0, "rep_pct_delay": 23.08, "rep_nivel_lm": 4, "rep_pct_cancel_lm": 13.33, "rep_pct_claims_lm": 0.0, "rep_pct_delay_lm": 25.0, "tgmv_ars": 83345, "tgmv_ars_lm": 0, "tsi": 1, "tsi_lm": 0, "orders": 1, "orders_lm": 0, "asp_ars": 83345, "asp_ars_lm": 0, "visitas": 30, "visitas_lm": 12, "cvr_pct": 3.33, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 0.0, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 100.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 50.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 226475251, "name": "Notre Dame Arg", "rep_nivel": 5, "rep_pct_cancel": 0.0, "rep_pct_claims": 1.5, "rep_pct_delay": 3.48, "rep_nivel_lm": 3, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 1.52, "rep_pct_delay_lm": 3.51, "tgmv_ars": 49452, "tgmv_ars_lm": 0, "tsi": 1, "tsi_lm": 0, "orders": 1, "orders_lm": 0, "asp_ars": 49452, "asp_ars_lm": 0, "visitas": 140, "visitas_lm": 62, "cvr_pct": 0.71, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 5.1, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 1.7, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 28149340, "name": "Leon Banchik", "rep_nivel": 2, "rep_pct_cancel": 0.0, "rep_pct_claims": 4.92, "rep_pct_delay": 1.92, "rep_nivel_lm": 2, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 4.76, "rep_pct_delay_lm": 1.85, "tgmv_ars": 9476, "tgmv_ars_lm": 345000, "tsi": 1, "tsi_lm": 1, "orders": 1, "orders_lm": 1, "asp_ars": 9476, "asp_ars_lm": 345000, "visitas": 163, "visitas_lm": 102, "cvr_pct": 0.61, "cvr_pct_lm": 0.98, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 0.0, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 0.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 232783934, "name": "SVA Repuestos", "rep_nivel": 1, "rep_pct_cancel": 3.8, "rep_pct_claims": 2.11, "rep_pct_delay": 3.9, "rep_nivel_lm": 1, "rep_pct_cancel_lm": 3.77, "rep_pct_claims_lm": 2.09, "rep_pct_delay_lm": 3.88, "tgmv_ars": 0, "tgmv_ars_lm": 0, "tsi": 0, "tsi_lm": 0, "orders": 0, "orders_lm": 0, "asp_ars": 0, "asp_ars_lm": 0, "visitas": 6, "visitas_lm": 9, "cvr_pct": 0.0, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 49.9, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 3.7, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 223816996, "name": "Blois Peugeot", "rep_nivel": 1, "rep_pct_cancel": 0.0, "rep_pct_claims": 0.0, "rep_pct_delay": 27.27, "rep_nivel_lm": 1, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 0.0, "rep_pct_delay_lm": 26.09, "tgmv_ars": 0, "tgmv_ars_lm": 0, "tsi": 0, "tsi_lm": 0, "orders": 0, "orders_lm": 0, "asp_ars": 0, "asp_ars_lm": 0, "visitas": 1, "visitas_lm": 15, "cvr_pct": 0.0, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 0.9, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 0.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 279052800, "name": "Rosedal Automotores", "rep_nivel": 0, "rep_pct_cancel": 0.0, "rep_pct_claims": 0.0, "rep_pct_delay": 0.0, "rep_nivel_lm": 0, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 0.0, "rep_pct_delay_lm": 0.0, "tgmv_ars": 0, "tgmv_ars_lm": 0, "tsi": 0, "tsi_lm": 0, "orders": 0, "orders_lm": 0, "asp_ars": 0, "asp_ars_lm": 0, "visitas": 0, "visitas_lm": 0, "cvr_pct": 0.0, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 0.0, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 0.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 120651187, "name": "Automobiles Rouge", "rep_nivel": 1, "rep_pct_cancel": 7.14, "rep_pct_claims": 9.52, "rep_pct_delay": 76.47, "rep_nivel_lm": 1, "rep_pct_cancel_lm": 7.14, "rep_pct_claims_lm": 9.52, "rep_pct_delay_lm": 76.47, "tgmv_ars": 0, "tgmv_ars_lm": 0, "tsi": 0, "tsi_lm": 0, "orders": 0, "orders_lm": 0, "asp_ars": 0, "asp_ars_lm": 0, "visitas": 0, "visitas_lm": 0, "cvr_pct": 0.0, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 0.0, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 0.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 1335667469, "name": "Peugeot Avec", "rep_nivel": 0, "rep_pct_cancel": 0.0, "rep_pct_claims": 0.0, "rep_pct_delay": 0.0, "rep_nivel_lm": 0, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 0.0, "rep_pct_delay_lm": 0.0, "tgmv_ars": 0, "tgmv_ars_lm": 0, "tsi": 0, "tsi_lm": 0, "orders": 0, "orders_lm": 0, "asp_ars": 0, "asp_ars_lm": 0, "visitas": 0, "visitas_lm": 0, "cvr_pct": 0.0, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 0.0, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 0.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 1471451284, "name": "Lele", "rep_nivel": 0, "rep_pct_cancel": 0.0, "rep_pct_claims": 0.0, "rep_pct_delay": 0.0, "rep_nivel_lm": 0, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 0.0, "rep_pct_delay_lm": 0.0, "tgmv_ars": 0, "tgmv_ars_lm": 0, "tsi": 0, "tsi_lm": 0, "orders": 0, "orders_lm": 0, "asp_ars": 0, "asp_ars_lm": 0, "visitas": 0, "visitas_lm": 0, "cvr_pct": 0.0, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 0.0, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 0.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 1835463176, "name": "Graff Schwerdt SA", "rep_nivel": 1, "rep_pct_cancel": 4.55, "rep_pct_claims": 0.0, "rep_pct_delay": 0.0, "rep_nivel_lm": 1, "rep_pct_cancel_lm": 4.55, "rep_pct_claims_lm": 0.0, "rep_pct_delay_lm": 0.0, "tgmv_ars": 0, "tgmv_ars_lm": 0, "tsi": 0, "tsi_lm": 0, "orders": 0, "orders_lm": 0, "asp_ars": 0, "asp_ars_lm": 0, "visitas": 14, "visitas_lm": 6, "cvr_pct": 0.0, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 0.6, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 3.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 1590389930, "name": "Indiana Peugeot", "rep_nivel": 2, "rep_pct_cancel": 2.41, "rep_pct_claims": 4.82, "rep_pct_delay": 6.25, "rep_nivel_lm": 2, "rep_pct_cancel_lm": 2.38, "rep_pct_claims_lm": 4.76, "rep_pct_delay_lm": 6.15, "tgmv_ars": 0, "tgmv_ars_lm": 0, "tsi": 0, "tsi_lm": 0, "orders": 0, "orders_lm": 0, "asp_ars": 0, "asp_ars_lm": 0, "visitas": 9, "visitas_lm": 7, "cvr_pct": 0.0, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 30.2, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 0.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 280248445, "name": "Robayna Repuestos", "rep_nivel": 5, "rep_pct_cancel": 0.0, "rep_pct_claims": 0.0, "rep_pct_delay": 2.56, "rep_nivel_lm": 5, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 0.0, "rep_pct_delay_lm": 2.56, "tgmv_ars": 0, "tgmv_ars_lm": 0, "tsi": 0, "tsi_lm": 0, "orders": 0, "orders_lm": 0, "asp_ars": 0, "asp_ars_lm": 0, "visitas": 16, "visitas_lm": 14, "cvr_pct": 0.0, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 0.0, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 0.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 212337293, "name": "Metz Chaco", "rep_nivel": 0, "rep_pct_cancel": 0.0, "rep_pct_claims": 0.0, "rep_pct_delay": 0.0, "rep_nivel_lm": 0, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 0.0, "rep_pct_delay_lm": 0.0, "tgmv_ars": 0, "tgmv_ars_lm": 0, "tsi": 0, "tsi_lm": 0, "orders": 0, "orders_lm": 0, "asp_ars": 0, "asp_ars_lm": 0, "visitas": 1, "visitas_lm": 1, "cvr_pct": 0.0, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 6.7, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 6.7, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 578302849, "name": "Parra Repuestos", "rep_nivel": 6, "rep_pct_cancel": 0.0, "rep_pct_claims": 0.56, "rep_pct_delay": 3.07, "rep_nivel_lm": 6, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 0.55, "rep_pct_delay_lm": 2.99, "tgmv_ars": 0, "tgmv_ars_lm": 64201, "tsi": 0, "tsi_lm": 6, "orders": 0, "orders_lm": 2, "asp_ars": 0, "asp_ars_lm": 10700, "visitas": 159, "visitas_lm": 163, "cvr_pct": 0.0, "cvr_pct_lm": 1.23, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 92.1, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 100.0, "pct_ll_pxq": 0.1, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 230442120, "name": "Gioda Automotores", "rep_nivel": 0, "rep_pct_cancel": 0.0, "rep_pct_claims": 0.0, "rep_pct_delay": 0.0, "rep_nivel_lm": 0, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 0.0, "rep_pct_delay_lm": 0.0, "tgmv_ars": 0, "tgmv_ars_lm": 0, "tsi": 0, "tsi_lm": 0, "orders": 0, "orders_lm": 0, "asp_ars": 0, "asp_ars_lm": 0, "visitas": 0, "visitas_lm": 0, "cvr_pct": 0.0, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 0.0, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 0.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 1494888710, "name": "Eurodycar", "rep_nivel": 0, "rep_pct_cancel": 0.0, "rep_pct_claims": 0.0, "rep_pct_delay": 0.0, "rep_nivel_lm": 0, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 0.0, "rep_pct_delay_lm": 0.0, "tgmv_ars": 0, "tgmv_ars_lm": 0, "tsi": 0, "tsi_lm": 0, "orders": 0, "orders_lm": 0, "asp_ars": 0, "asp_ars_lm": 0, "visitas": 0, "visitas_lm": 0, "cvr_pct": 0.0, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 0.0, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 0.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 653160072, "name": "Chambord Repuestos", "rep_nivel": 3, "rep_pct_cancel": 0.0, "rep_pct_claims": 1.69, "rep_pct_delay": 5.56, "rep_nivel_lm": 3, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 1.67, "rep_pct_delay_lm": 5.45, "tgmv_ars": 0, "tgmv_ars_lm": 0, "tsi": 0, "tsi_lm": 0, "orders": 0, "orders_lm": 0, "asp_ars": 0, "asp_ars_lm": 0, "visitas": 0, "visitas_lm": 0, "cvr_pct": 0.0, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 0.2, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 0.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 222703817, "name": "Ancasti Peugeot", "rep_nivel": 4, "rep_pct_cancel": 0.0, "rep_pct_claims": 7.14, "rep_pct_delay": 7.69, "rep_nivel_lm": 4, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 7.14, "rep_pct_delay_lm": 7.69, "tgmv_ars": 0, "tgmv_ars_lm": 390000, "tsi": 0, "tsi_lm": 1, "orders": 0, "orders_lm": 1, "asp_ars": 0, "asp_ars_lm": 390000, "visitas": 82, "visitas_lm": 54, "cvr_pct": 0.0, "cvr_pct_lm": 1.85, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 0.0, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 0.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 1300454182, "name": "Citroen La Voiture SA", "rep_nivel": 3, "rep_pct_cancel": 1.75, "rep_pct_claims": 0.0, "rep_pct_delay": 6.12, "rep_nivel_lm": 3, "rep_pct_cancel_lm": 1.75, "rep_pct_claims_lm": 0.0, "rep_pct_delay_lm": 6.12, "tgmv_ars": 0, "tgmv_ars_lm": 0, "tsi": 0, "tsi_lm": 0, "orders": 0, "orders_lm": 0, "asp_ars": 0, "asp_ars_lm": 0, "visitas": 17, "visitas_lm": 11, "cvr_pct": 0.0, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 0.0, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 0.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}, {"seller_id": 375754390, "name": "Les Bleus Repuestos", "rep_nivel": 0, "rep_pct_cancel": 0.0, "rep_pct_claims": 0.0, "rep_pct_delay": 0.0, "rep_nivel_lm": 0, "rep_pct_cancel_lm": 0.0, "rep_pct_claims_lm": 0.0, "rep_pct_delay_lm": 0.0, "tgmv_ars": 0, "tgmv_ars_lm": 0, "tsi": 0, "tsi_lm": 0, "orders": 0, "orders_lm": 0, "asp_ars": 0, "asp_ars_lm": 0, "visitas": 0, "visitas_lm": 2, "cvr_pct": 0.0, "cvr_pct_lm": 0.0, "fbm_pct_tgmv": 0.0, "fbm_pct_tgmv_lm": 0.0, "fbm_pct_tsi": 0.0, "fbm_pct_tsi_lm": 0.0, "pct_ll_gold_pro": 0.0, "pct_ll_gold_pro_lm": 0.0, "gp_pct": 0.0, "gp_pct_lm": 0.0, "pct_ll_pxq": 0.0, "pct_ll_pxq_lm": 0.0, "pct_sl_pxq": 0.0, "pct_sl_pxq_lm": 0.0, "pct_nmv_pxq": 0.0, "pct_nmv_pxq_lm": 0.0, "pct_mads": 0.0, "pct_mads_lm": 0.0, "acos_pct": 0.0, "acos_pct_lm": 0.0}];
+
+let filtered=[...RAW], sortField='tgmv_ars', sortDir=-1;
 
 // ── Format helpers ──────────────────────────────────────────────────────────
-const fmtARS = v => v>=1e9?`$${(v/1e9).toFixed(2)}B`:`$${(v/1e6).toFixed(1)}M`;
-const fmtN   = v => v>=1e6?`${(v/1e6).toFixed(1)}M`:v>=1e3?`${(v/1e3).toFixed(0)}K`:v.toLocaleString('es-AR');
-const fmtASP = v => `$${Math.round(v/1000).toLocaleString('es-AR')}K`;
-const fmtPct = v => `${Number(v).toFixed(2)}%`;
+const fmtTGMV = v => `$${(v/1e6).toFixed(1)}M`;
+const fmtN    = v => v>=1e6?`${(v/1e6).toFixed(1)}M`:v>=1e3?`${(v/1e3).toFixed(0)}K`:v.toLocaleString('es-AR');
+const fmtASP  = v => `$${(v/1000).toFixed(0)}K`;
+const fmtPct  = v => `${Number(v).toFixed(2)}%`;
 
 function delta(cur, prev, {inverse=false, isPp=false, decimals=1}={}){
-  if(prev==null||prev===0) return '<span class="td-lm arr-neu lm-txt">— vs LM</span>';
-  const diff = isPp ? (cur-prev) : (cur-prev)/Math.abs(prev)*100;
+  if(prev==null||prev===undefined) return '<span class="td-lm arr-neu lm-txt">— vs LM</span>';
+  const diff = isPp ? (cur-prev) : (prev===0 ? 0 : (cur-prev)/Math.abs(prev)*100);
   const isImprovement = inverse ? diff<0 : diff>0;
   const isNeutral = Math.abs(diff)<(isPp?0.1:0.5);
   const cls   = isNeutral?'arr-neu':isImprovement?'arr-up':'arr-dn';
@@ -257,60 +284,79 @@ function populateDealerFilter(){
   const sel=document.getElementById('sel-dealer');
   RAW.forEach(d=>{
     const o=document.createElement('option');
-    o.value=d.id; o.textContent=d.name; sel.appendChild(o);
+    o.value=d.seller_id; o.textContent=d.name; sel.appendChild(o);
   });
 }
 function applyFilter(){
   const v=document.getElementById('sel-dealer').value;
-  filtered = v==='all'?[...RAW]:RAW.filter(d=>String(d.id)===v);
+  filtered = v==='all'?[...RAW]:RAW.filter(d=>String(d.seller_id)===v);
   renderAll();
 }
 
-// ── KPIs — Top 10 por TGMV ──────────────────────────────────────────────────
+// ── KPIs ────────────────────────────────────────────────────────────────────
 function renderKPIs(){
-  // Summary cards show only the top 10 dealers by MTD TGMV
-  const top10 = [...filtered].sort((a,b)=>b.tgmv-a.tgmv).slice(0,10);
-  const src   = top10.length > 0 ? top10 : filtered;
+  const sum  = f => filtered.reduce((s,d)=>s+(d[f]||0),0);
+  const wavg = (pctF,wF,pctLmF,wLmF) => {
+    const n=filtered.reduce((s,d)=>s+(d[pctF]||0)*(d[wF]||0),0);
+    const d=sum(wF);
+    const nL=filtered.reduce((s,d)=>s+(d[pctLmF]||0)*(d[wLmF]||0),0);
+    const dL=sum(wLmF);
+    return {v:d>0?n/d:0, lm:dL>0?nL/dL:0};
+  };
 
-  const sum=(arr,f)=>arr.reduce((s,d)=>s+(d[f]||0),0);
-  const tgmv=sum(src,'tgmv'), tsi=sum(src,'tsi'), vis=sum(src,'visits'), ll=sum(src,'listings');
-  const asp=tsi>0?tgmv/tsi:0, cvr=vis>0?tsi/vis*100:0;
-  const tgmvLm=sum(src,'tgmv_lm'), tsiLm=sum(src,'tsi_lm');
-  const visLm=sum(src,'visits_lm'), llLm=sum(src,'listings_lm');
-  const aspLm=tsiLm>0?tgmvLm/tsiLm:0;
+  const tgmv   = sum('tgmv_ars'),    tgmvLm  = sum('tgmv_ars_lm');
+  const tsi    = sum('tsi'),         tsiLm   = sum('tsi_lm');
+  const ord    = sum('orders'),      ordLm   = sum('orders_lm');
+  const vis    = sum('visitas'),     visLm   = sum('visitas_lm');
+  const asp    = tsi>0  ? tgmv/tsi   : 0;
+  const aspLm  = tsiLm>0? tgmvLm/tsiLm : 0;
+  const cvr    = vis>0  ? ord/vis*100 : 0;
+  const cvrLm  = visLm>0? ordLm/visLm*100 : 0;
 
-  const set=(id,val,d)=>{document.getElementById(id).textContent=val;document.getElementById(id+'-d').innerHTML=d.html||'';};
-  set('k-tgmv', fmtARS(tgmv),  kpiDelta(tgmv,tgmvLm));
-  set('k-tsi',  tsi.toLocaleString('es-AR'), kpiDelta(tsi,tsiLm));
-  set('k-asp',  fmtASP(asp),   kpiDelta(asp,aspLm));
-  set('k-vis',  fmtN(vis),     kpiDelta(vis,visLm));
-  set('k-ll',   ll.toLocaleString('es-AR'),  kpiDelta(ll,llLm));
-  document.getElementById('k-cvr').textContent=`CVR ${cvr.toFixed(2)}%`;
+  // Row 2: weighted avg by TGMV
+  const fbm   = wavg('fbm_pct_tgmv','tgmv_ars','fbm_pct_tgmv_lm','tgmv_ars_lm');
+  const gp    = wavg('gp_pct','tgmv_ars','gp_pct_lm','tgmv_ars_lm');
+  const pxq   = wavg('pct_nmv_pxq','tgmv_ars','pct_nmv_pxq_lm','tgmv_ars_lm');
+  const mads  = wavg('pct_mads','tgmv_ars','pct_mads_lm','tgmv_ars_lm');
+  const acos  = wavg('acos_pct','tgmv_ars','acos_pct_lm','tgmv_ars_lm');
+
+  const set=(id,val,cur,prev,opts={})=>{
+    document.getElementById(id).textContent=val;
+    document.getElementById(id+'-d').innerHTML=kpiDelta(cur,prev,opts).html;
+  };
+
+  set('k-tgmv', fmtTGMV(tgmv),   tgmv,   tgmvLm);
+  set('k-tsi',  tsi.toLocaleString('es-AR'), tsi, tsiLm);
+  set('k-asp',  fmtASP(asp),      asp,    aspLm);
+  set('k-vis',  fmtN(vis),        vis,    visLm);
+  set('k-cvr',  `${cvr.toFixed(2)}%`, cvr, cvrLm);
+  set('k-fbm',  `${fbm.v.toFixed(1)}%`,  fbm.v,  fbm.lm);
+  set('k-gp',   `${gp.v.toFixed(1)}%`,   gp.v,   gp.lm);
+  set('k-pxq',  `${pxq.v.toFixed(1)}%`,  pxq.v,  pxq.lm);
+  set('k-mads', `${mads.v.toFixed(2)}%`, mads.v, mads.lm, {inverse:true});
+  set('k-acos', `${acos.v.toFixed(1)}%`, acos.v, acos.lm, {inverse:true});
 }
 
 // ── Table ───────────────────────────────────────────────────────────────────
 function repBadge(r){
-  // MeLi internal codes: 1-4 warning tiers, 5 = green, 6 = ML, 7 = ML Gold, 8 = ML Platinum
   if(r>=8) return '<span class="rep-badge rep-5">★★★★★ ML Platinum</span>';
   if(r===7) return '<span class="rep-badge rep-5">★★★★★ ML Gold</span>';
   if(r===6) return '<span class="rep-badge rep-4">★★★★★ ML</span>';
-  const stars = Math.min(r, 5);
-  const s = '★'.repeat(stars) + '☆'.repeat(5-stars);
+  const stars = Math.min(r,5);
+  const s = '★'.repeat(stars)+'☆'.repeat(5-stars);
   const c = r>=5?'rep-5':r===4?'rep-4':r===3?'rep-3':'rep-12';
-  return '<span class="rep-badge ' + c + '">' + s + ' ' + r + '</span>';
+  return `<span class="rep-badge ${c}">${s} ${r}</span>`;
 }
 function ratePill(v,warn,bad){
   const c=v>=bad?'pill-red':v>=warn?'pill-amber':'pill-green';
   return `<span class="pill ${c}">${fmtPct(v)}</span>`;
 }
 function acosCls(v){return v<10?'acos-ok':v<20?'acos-mid':'acos-hi';}
-function shpBar(d){
-  return `<div class="shp-bar">
-    <div class="shp-seg" style="width:${d.fbm_pct}%;background:#0066cc"></div>
-    <div class="shp-seg" style="width:${d.flex_pct}%;background:#0891b2"></div>
-    <div class="shp-seg" style="width:${d.xd_pct}%;background:#d97706"></div>
-    <div class="shp-seg" style="width:${d.ds_pct}%;background:#94a3b8"></div>
-  </div>`;
+function pctCell(v,vLm,{inverse=false,warn,bad}={}){
+  let pill='';
+  if(warn!==undefined&&bad!==undefined) pill=ratePill(v,warn,bad);
+  else pill=`<span class="td-val">${v.toFixed(1)}%</span>`;
+  return pill+delta(v,vLm,{inverse,isPp:true});
 }
 
 function renderTable(){
@@ -319,46 +365,46 @@ function renderTable(){
     return typeof av==='number'?(av-bv)*sortDir:(String(av).localeCompare(String(bv)))*sortDir;
   });
   document.getElementById('tbl-body').innerHTML=sorted.map(d=>`<tr>
-    <td><div class="seller-name">${d.name}</div><div class="seller-id">${d.id}</div></td>
-    <td style="border-left:2px solid #f0f3f8">${repBadge(d.rep)}</td>
-    <td>${ratePill(d.cancel_rate,0.8,1.5)}${delta(d.cancel_rate,d.cancel_rate_lm,{inverse:true,isPp:true})}</td>
-    <td>${ratePill(d.claims_rate,1.0,1.8)}${delta(d.claims_rate,d.claims_rate_lm,{inverse:true,isPp:true})}</td>
-    <td>${ratePill(d.delayed_rate,1.5,2.5)}${delta(d.delayed_rate,d.delayed_rate_lm,{inverse:true,isPp:true})}</td>
-    <td style="border-left:2px solid #f0f3f8"><span class="td-val">${fmtARS(d.tgmv)}</span>${delta(d.tgmv,d.tgmv_lm)}</td>
+    <td><div class="seller-name">${d.name}</div><div class="seller-id">${d.seller_id}</div></td>
+    <td style="border-left:2px solid #f0f3f8">${repBadge(d.rep_nivel)}${d.rep_nivel!==d.rep_nivel_lm?delta(d.rep_nivel,d.rep_nivel_lm):''}</td>
+    <td>${ratePill(d.rep_pct_cancel,0.8,1.5)}${delta(d.rep_pct_cancel,d.rep_pct_cancel_lm,{inverse:true,isPp:true})}</td>
+    <td>${ratePill(d.rep_pct_claims,1.0,1.8)}${delta(d.rep_pct_claims,d.rep_pct_claims_lm,{inverse:true,isPp:true})}</td>
+    <td>${ratePill(d.rep_pct_delay,1.5,2.5)}${delta(d.rep_pct_delay,d.rep_pct_delay_lm,{inverse:true,isPp:true})}</td>
+    <td style="border-left:2px solid #f0f3f8"><span class="td-val">${fmtTGMV(d.tgmv_ars)}</span>${delta(d.tgmv_ars,d.tgmv_ars_lm)}</td>
     <td><span class="td-val">${d.tsi.toLocaleString('es-AR')}</span>${delta(d.tsi,d.tsi_lm)}</td>
-    <td><span class="td-val">${fmtASP(d.asp)}</span>${d.asp_lm?delta(d.asp,d.asp_lm):''}</td>
-    <td style="border-left:2px solid #f0f3f8"><span class="td-val">${fmtN(d.visits)}</span>${delta(d.visits,d.visits_lm)}</td>
-    <td><span class="pill pill-blue">${fmtPct(d.cvr_raw)}</span>${delta(d.cvr_raw,d.cvr_raw_lm,{isPp:true})}</td>
-    <td style="border-left:2px solid #f0f3f8"><span class="td-val">${d.listings.toLocaleString('es-AR')}</span>${delta(d.listings,d.listings_lm)}</td>
-    <td style="border-left:2px solid #f0f3f8">${shpBar(d)}</td>
-    <td><span class="pill ${d.fbm_pct>=65?'pill-blue':'pill-gray'}">${d.fbm_pct}%</span>${delta(d.fbm_pct,d.fbm_pct_lm,{isPp:true})}</td>
-    <td>${d.flex_pct}%</td>
-    <td style="border-left:2px solid #f0f3f8"><span class="td-val">${d.combo_pr_pct}%</span>${delta(d.combo_pr_pct,d.combo_pr_pct_lm,{isPp:true})}</td>
-    <td>${d.combo_cl_pct}%</td>
-    <td style="border-left:2px solid #f0f3f8"><span class="td-val">${d.benefits_pct}%</span>${delta(d.benefits_pct,d.benefits_pct_lm,{isPp:true})}</td>
-    <td style="border-left:2px solid #f0f3f8"><span class="${acosCls(d.acos)}">${d.acos.toFixed(1)}%</span>${delta(d.acos,d.acos_lm,{inverse:true,isPp:true})}</td>
-    <td><span class="td-val">${fmtARS(d.pads_inv)}</span>${delta(d.pads_inv,d.pads_inv_lm)}</td>
-    <td>${d.pads_items}</td>
+    <td><span class="td-val">${d.orders.toLocaleString('es-AR')}</span>${delta(d.orders,d.orders_lm)}</td>
+    <td><span class="td-val">${fmtASP(d.asp_ars)}</span>${delta(d.asp_ars,d.asp_ars_lm)}</td>
+    <td style="border-left:2px solid #f0f3f8"><span class="td-val">${fmtN(d.visitas)}</span>${delta(d.visitas,d.visitas_lm)}</td>
+    <td><span class="pill pill-blue">${d.cvr_pct.toFixed(2)}%</span>${delta(d.cvr_pct,d.cvr_pct_lm,{isPp:true})}</td>
+    <td style="border-left:2px solid #f0f3f8"><span class="pill ${d.fbm_pct_tgmv>=65?'pill-blue':'pill-gray'}">${d.fbm_pct_tgmv.toFixed(1)}%</span>${delta(d.fbm_pct_tgmv,d.fbm_pct_tgmv_lm,{isPp:true})}</td>
+    <td><span class="td-val">${d.fbm_pct_tsi.toFixed(1)}%</span>${delta(d.fbm_pct_tsi,d.fbm_pct_tsi_lm,{isPp:true})}</td>
+    <td style="border-left:2px solid #f0f3f8"><span class="td-val">${d.pct_ll_gold_pro.toFixed(1)}%</span>${delta(d.pct_ll_gold_pro,d.pct_ll_gold_pro_lm,{isPp:true})}</td>
+    <td><span class="td-val">${d.gp_pct.toFixed(1)}%</span>${delta(d.gp_pct,d.gp_pct_lm,{isPp:true})}</td>
+    <td style="border-left:2px solid #f0f3f8"><span class="td-val">${d.pct_ll_pxq.toFixed(1)}%</span>${delta(d.pct_ll_pxq,d.pct_ll_pxq_lm,{isPp:true})}</td>
+    <td><span class="td-val">${d.pct_sl_pxq.toFixed(1)}%</span>${delta(d.pct_sl_pxq,d.pct_sl_pxq_lm,{isPp:true})}</td>
+    <td><span class="td-val">${d.pct_nmv_pxq.toFixed(1)}%</span>${delta(d.pct_nmv_pxq,d.pct_nmv_pxq_lm,{isPp:true})}</td>
+    <td style="border-left:2px solid #f0f3f8"><span class="td-val">${d.pct_mads.toFixed(1)}%</span>${delta(d.pct_mads,d.pct_mads_lm,{inverse:true,isPp:true})}</td>
+    <td><span class="${acosCls(d.acos_pct)}">${d.acos_pct.toFixed(1)}%</span>${delta(d.acos_pct,d.acos_pct_lm,{inverse:true,isPp:true})}</td>
   </tr>`).join('');
 }
 
 function thSort(f){
   if(sortField===f) sortDir*=-1; else{sortField=f;sortDir=-1;}
-  document.querySelectorAll('thead th').forEach(t=>t.className='');
+  document.querySelectorAll('thead th').forEach(t=>t.className=t.classList.contains('th-group')?'th-group':'');
   event.currentTarget.className=sortDir===-1?'sort-desc':'sort-asc';
   renderTable();
 }
 
 // ── Charts ──────────────────────────────────────────────────────────────────
-let cTgmv=null,cShip=null,cAcos=null;
+let cTgmv=null;
 function renderCharts(){
-  const sorted=[...filtered].sort((a,b)=>b.tgmv-a.tgmv);
+  const sorted=[...filtered].sort((a,b)=>b.tgmv_ars-a.tgmv_ars).slice(0,11);
   if(cTgmv)cTgmv.destroy();
   cTgmv=new Chart(document.getElementById('chart-tgmv').getContext('2d'),{
     type:'bar',
     data:{labels:sorted.map(d=>d.name),datasets:[
-      {label:'MTD',data:sorted.map(d=>+(d.tgmv/1e6).toFixed(1)),backgroundColor:'#0053A0CC',borderColor:'#0053A0',borderWidth:1,borderRadius:4},
-      {label:'LM mismos días',data:sorted.map(d=>+(d.tgmv_lm/1e6).toFixed(1)),backgroundColor:'#0066cc44',borderColor:'#0066cc88',borderWidth:1,borderRadius:4}
+      {label:'MTD',data:sorted.map(d=>+(d.tgmv_ars/1e6).toFixed(1)),backgroundColor:'#001e50CC',borderColor:'#001e50',borderWidth:1,borderRadius:4},
+      {label:'LM mismos días',data:sorted.map(d=>+(d.tgmv_ars_lm/1e6).toFixed(1)),backgroundColor:'#0066cc44',borderColor:'#0066cc88',borderWidth:1,borderRadius:4}
     ]},
     options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
       plugins:{legend:{position:'top',labels:{font:{size:11},padding:12,usePointStyle:true}},
@@ -366,45 +412,15 @@ function renderCharts(){
       scales:{x:{beginAtZero:true,ticks:{callback:v=>`$${v}M`},grid:{color:'#f0f3f7'}},y:{grid:{display:false},ticks:{font:{size:10}}}}}
   });
 
-  const totFbm=filtered.reduce((s,d)=>s+d.fbm_pct*d.tsi,0);
-  const totFlex=filtered.reduce((s,d)=>s+d.flex_pct*d.tsi,0);
-  const totXd=filtered.reduce((s,d)=>s+d.xd_pct*d.tsi,0);
-  const totDs=filtered.reduce((s,d)=>s+d.ds_pct*d.tsi,0);
-  const base=totFbm+totFlex+totXd+totDs||1;
-  if(cShip)cShip.destroy();
-  cShip=new Chart(document.getElementById('chart-ship').getContext('2d'),{
-    type:'doughnut',
-    data:{labels:['Full (FBM)','Flex','Cross-Dock','Drop-off'],
-      datasets:[{data:[+(totFbm/base*100).toFixed(1),+(totFlex/base*100).toFixed(1),+(totXd/base*100).toFixed(1),+(totDs/base*100).toFixed(1)],
-        backgroundColor:['#0066cc','#0891b2','#d97706','#94a3b8'],borderColor:'#fff',borderWidth:2}]},
-    options:{responsive:true,maintainAspectRatio:false,cutout:'60%',
-      plugins:{legend:{position:'bottom',labels:{padding:10,font:{size:10}}},
-        tooltip:{callbacks:{label:c=>`${c.label}: ${c.parsed.toFixed(1)}% de las unidades vendidas`}}}}
-  });
-
-  const acosSorted=[...filtered].sort((a,b)=>a.acos-b.acos);
-  if(cAcos)cAcos.destroy();
-  cAcos=new Chart(document.getElementById('chart-acos').getContext('2d'),{
-    type:'bar',
-    data:{labels:acosSorted.map(d=>d.name),datasets:[
-      {label:'ACOS MTD',data:acosSorted.map(d=>d.acos),backgroundColor:acosSorted.map(d=>d.acos<10?'#15803dCC':d.acos<20?'#b45309CC':'#dc2626CC'),borderWidth:0,borderRadius:3},
-      {label:'ACOS LM',data:acosSorted.map(d=>d.acos_lm),backgroundColor:'#94a3b855',borderColor:'#94a3b8',borderWidth:1,borderRadius:3}
-    ]},
-    options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
-      plugins:{legend:{position:'top',labels:{font:{size:10},padding:10,usePointStyle:true}},
-        tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.parsed.x.toFixed(1)}%`}}},
-      scales:{x:{beginAtZero:true,ticks:{callback:v=>`${v}%`},grid:{color:'#f0f3f7'},max:32},y:{grid:{display:false},ticks:{font:{size:10}}}}}
-  });
 }
 
 function renderAll(){renderKPIs();renderTable();renderCharts();}
 
 function doRefresh(){
-  const btn = document.getElementById('refresh-btn');
-  btn.textContent = '⟳ Cargando...';
-  btn.disabled = true;
-  // Force hard reload — gets the latest version published by the weekly scheduler
-  setTimeout(()=>{ window.location.reload(true); }, 400);
+  const btn=document.getElementById('refresh-btn');
+  btn.textContent='⟳ Cargando...';
+  btn.disabled=true;
+  setTimeout(()=>{ window.location.reload(true); },400);
 }
 
 populateDealerFilter();
@@ -412,5 +428,8 @@ renderAll();
 </script>
 </body>
 </html>
+
+
+
 
 
